@@ -1,7 +1,15 @@
 import React from 'react';
 
 const QuestionComp = ({ title, info }) => {
-	return <div>{title}</div>;
+	return (
+		<article className='question'>
+			<header>
+				<h5>{title}</h5>
+				<button className='question-btn'>+</button>
+			</header>
+			<p>{info}</p>
+		</article>
+	);
 };
 
 export default QuestionComp;
