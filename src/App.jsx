@@ -3,6 +3,7 @@ import data from './data.js';
 import Question from './QuestionComp';
 
 const App = () => {
+	const collapseAllHandler = () => {};
 	return (
 		<main>
 			<section className='container'>
@@ -13,6 +14,7 @@ const App = () => {
 							<Question
 								title={title}
 								info={info}
+								collapseAllHandler={collapseAllHandler}
 							/>
 						</li>
 					))}
