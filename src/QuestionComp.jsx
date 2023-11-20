@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 
-const QuestionComp = ({ title, info, collapseAllHandler }) => {
+const QuestionComp = ({ title, info }) => {
 	const [expandState, setExpandState] = useState(false);
 	const expandClickHandler = () => {
-		collapseAllHandler;
 		setExpandState(!expandState);
 	};
 	return (
@@ -16,7 +15,9 @@ const QuestionComp = ({ title, info, collapseAllHandler }) => {
 					{expandState ? '-' : '+'}
 				</button>
 			</header>
-			{expandState && <p>{info}</p>}
+			<div className={`question-content ${expandState ? 'expanded' : ''}`}>
+				{expandState && <p>{info}</p>}
+			</div>
 		</article>
 	);
 };
