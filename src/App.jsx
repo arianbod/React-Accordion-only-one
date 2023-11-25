@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import data from './data.js';
 import Question from './QuestionComp';
 
 const App = () => {
-	const collapseAllHandler = () => {};
+	const [expandedQuestion, setExpandedQuestion] = useState(null);
+	const handleOnToggle = (id) => {
+		setExpandedQuestion(expandedQuestion != id ? id : null);
+	};
 	return (
 		<main>
 			<section className='container'>
@@ -14,7 +17,8 @@ const App = () => {
 							<Question
 								title={title}
 								info={info}
-								collapseAllHandler={collapseAllHandler}
+								isExpanded={expandedQuestion === id}
+								expandClickHandler={() => handleOnToggle(id)}
 							/>
 						</li>
 					))}
