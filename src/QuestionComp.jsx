@@ -1,10 +1,5 @@
-import React, { useState } from 'react';
-
-const QuestionComp = ({ title, info }) => {
-	const [expandState, setExpandState] = useState(false);
-	const expandClickHandler = () => {
-		setExpandState(!expandState);
-	};
+import REact from 'react';
+const QuestionComp = ({ title, info, expandClickHandler, isExpanded }) => {
 	return (
 		<article className='question'>
 			<header>
@@ -12,11 +7,11 @@ const QuestionComp = ({ title, info }) => {
 				<button
 					className='question-btn'
 					onClick={expandClickHandler}>
-					{expandState ? '-' : '+'}
+					{isExpanded ? '-' : '+'}
 				</button>
 			</header>
-			<div className={`question-content ${expandState ? 'expanded' : ''}`}>
-				{expandState && <p>{info}</p>}
+			<div className={`question-content ${isExpanded ? 'expanded' : ''}`}>
+				{isExpanded && <p>{info}</p>}
 			</div>
 		</article>
 	);
